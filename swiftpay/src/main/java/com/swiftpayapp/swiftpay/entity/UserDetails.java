@@ -31,12 +31,11 @@ public class UserDetails {
 	private String bank_acc_no;
 	private String bank_branch;
 	private double wallet_balance;
+	private String password;
 	
 	
-	@OneToOne(mappedBy = "userdetails")
-	private LoginDetails logindetails;
 	
-	@OneToMany(mappedBy = "userTo")
+	@OneToMany(mappedBy ="userTo")
 	private List<TransactionDetails>  userToAccount;
 	
 	@OneToMany(mappedBy =  "userFrom")
@@ -131,14 +130,6 @@ public class UserDetails {
 		this.wallet_balance = wallet_balance;
 	}
 	
-	
-	
-	public LoginDetails getLogindetails() {
-		return logindetails;
-	}
-	public void setLogindetails(LoginDetails logindetails) {
-		this.logindetails = logindetails;
-	}
 	public List<TransactionDetails> getUserToAccount() {
 		return userToAccount;
 	}
@@ -156,6 +147,14 @@ public class UserDetails {
 	}
 	public void setSupportrequests(List<SupportRequests> supportrequests) {
 		this.supportrequests = supportrequests;
+	}
+	
+	
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	@Override
 	public String toString() {
