@@ -23,6 +23,7 @@ public class SupportRequests {
 	private Date resolutiondate;
 	
 	
+	
 	@ManyToOne
 	@JoinColumn(name="userid")
 	private UserDetails userdetails;

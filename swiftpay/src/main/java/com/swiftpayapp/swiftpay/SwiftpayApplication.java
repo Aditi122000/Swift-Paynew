@@ -16,19 +16,19 @@ class SwiftpayApplication {
 
 	public static void main(String[] args) {
 		ApplicationContext context = SpringApplication.run(SwiftpayApplication.class, args);
-		UserDetailsRepo udRepo = context.getBean(UserDetailsRepo.class);
-		
-		  UserDetails ut = new UserDetails(); ut.setUser_name("lost02");
-		  ut.setFirst_name("Prajna"); ut.setLast_name("Bhunia");
-		  ut.setContact_no("899999999"); ut.setAddress("Laketown");
-		  ut.setCity("Kolkata"); ut.setUstate("West Bengal");
-			/* ut.setDate_of_birth("28/06/2000"); */ ut.setGender('F');
-		  ut.setBank_name("Dummy Bank"); ut.setBank_acc_no("6120001500537282");
-		  ut.setBank_branch("Laketown");
-		 
-		
-		udRepo.save(ut);
-		
+//		UserDetailsRepo udRepo = context.getBean(UserDetailsRepo.class);
+//		
+//		  UserDetails ut = new UserDetails(); ut.setUser_name("lost02");
+//		  ut.setFirst_name("Prajna"); ut.setLast_name("Bhunia");
+//		  ut.setContact_no("899999999"); ut.setAddress("Laketown");
+//		  ut.setCity("Kolkata"); ut.setUstate("West Bengal");
+//			/* ut.setDate_of_birth("28/06/2000"); */ ut.setGender('F');
+//		  ut.setBank_name("Dummy Bank"); ut.setBank_acc_no("6120001500537282");
+//		  ut.setBank_branch("Laketown");
+//		 
+//		
+//		  udRepo.save(ut);
+//		
 		/*
 		 * List<UserDetails> list = (List<UserDetails>)udRepo.findAll();
 		 * list.forEach(user -> System.out.println(user));
