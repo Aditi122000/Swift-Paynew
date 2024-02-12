@@ -1,0 +1,42 @@
+@charset "ISO-8859-1";
+@charset "ISO-8859-1";
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 50px;
+  color: #333;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;  
+  background: #007bff;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;  
+}
+
+button:hover {
+  background: #0062cc;
+}
+
+#container {
+  max-width: 600px; 
+  margin: 0 auto;
+}
+
+#actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
