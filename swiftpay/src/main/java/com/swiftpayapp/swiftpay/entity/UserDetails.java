@@ -3,6 +3,8 @@ package com.swiftpayapp.swiftpay.entity;
 import java.util.Date;
 import java.util.List;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -19,14 +21,16 @@ public class UserDetails {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private int user_id;
     private String user_name;
+    private String email;
 	private String first_name;
 	private String last_name;
 	private String contact_no;
 	private String Address;
 	private String city;
 	private String ustate;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date date_of_birth;
-	private char gender;
+	private String gender;
 	private String bank_name;
 	private String bank_acc_no;
 	private String bank_branch;
@@ -99,10 +103,10 @@ public class UserDetails {
 	public void setDate_of_birth(Date date_of_birth) {
 		this.date_of_birth = date_of_birth;
 	}
-	public char getGender() {
+	public String getGender() {
 		return gender;
 	}
-	public void setGender(char gender) {
+	public void setGender(String gender) {
 		this.gender = gender;
 	}
 	public String getBank_name() {
@@ -156,13 +160,12 @@ public class UserDetails {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	@Override
-	public String toString() {
-		return "UserDetails [user_id=" + user_id + ", user_name=" + user_name + ", first_name=" + first_name
-				+ ", last_name=" + last_name + ", contact_no=" + contact_no + ", Address=" + Address + ", city=" + city
-				+ ", ustate=" + ustate + ", date_of_birth=" + date_of_birth + ", gender=" + gender + ", bank_name="
-				+ bank_name + ", bank_acc_no=" + bank_acc_no + ", bank_branch=" + bank_branch + ", wallet_balance="
-				+ wallet_balance + "]";
+	public String getEmail() {
+		return email;
 	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	
 	
 }
