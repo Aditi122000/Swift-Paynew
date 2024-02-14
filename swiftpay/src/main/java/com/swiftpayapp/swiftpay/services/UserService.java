@@ -51,6 +51,8 @@ public class UserService {
 
 	// method for registering the user in database
 	public void register(UserDetails user) {
+		//this method for directly setting 500 rs in wallet if user registers
+		user.setWallet_balance(500.0);
 		userDetailsRepo.save(user);
 	}
 }

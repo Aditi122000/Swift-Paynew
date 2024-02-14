@@ -19,6 +19,7 @@ public class UserRegistrationController {
 	@RequestMapping(value = "register" , method = RequestMethod.POST)
 	public String ifRegisteredGoToLogin(@ModelAttribute("userreg") UserDetails user) {
 		userService.register(user);
+		
 		return "login";
 	}
 
