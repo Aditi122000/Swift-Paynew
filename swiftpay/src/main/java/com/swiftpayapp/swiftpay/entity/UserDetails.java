@@ -11,6 +11,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
+import jakarta.persistence.SequenceGenerator;
 
 @Entity
 public class UserDetails {
@@ -18,7 +19,8 @@ public class UserDetails {
     
     
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "user_id_generator")
+    @SequenceGenerator(name = "user_id_generator",initialValue = 1,allocationSize = 1,sequenceName = "userid_seq")
 	private int user_id;
     private String user_name;
     private String email;
@@ -39,7 +41,7 @@ public class UserDetails {
 	
 	
 	
-	@OneToMany(mappedBy ="userTo")
+	@OneToMany(mappedBy ="userTo") 
 	private List<TransactionDetails>  userToAccount;
 	
 	@OneToMany(mappedBy =  "userFrom")
@@ -166,6 +168,8 @@ public class UserDetails {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	
+	
 	
 	
 }

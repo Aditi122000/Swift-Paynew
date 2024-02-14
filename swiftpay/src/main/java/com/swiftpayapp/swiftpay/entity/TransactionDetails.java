@@ -8,12 +8,14 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.SequenceGenerator;
 
 @Entity
 public class TransactionDetails {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE , generator = "transactionid_generator")
+    @SequenceGenerator(name = "transactionid_generator",initialValue = 1,allocationSize = 1,sequenceName = "transactionid_seq")
 	private int transactionid;
 	private Date transaction_date;
 	private Date transaction_amount;

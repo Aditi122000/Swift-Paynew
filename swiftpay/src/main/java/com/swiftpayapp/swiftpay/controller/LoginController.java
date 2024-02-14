@@ -1,4 +1,6 @@
 package com.swiftpayapp.swiftpay.controller;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -27,10 +29,15 @@ public class LoginController {
 	public String goToDashboard(@RequestParam String email, @RequestParam String password , ModelMap model) {
 		
 		try {
-		      boolean isAuthenticated = userService.loginValidation(email, password);
+		      Map<String, Object> loginResult = userService.loginValidation(email, password);
 
-		      if(isAuthenticated) {
-		        return "dashboard";
+		      if((boolean) loginResult.get("isValid")) {
+		    	  String role= (String) loginResult.get("role");
+		        if(role.equals("ADMIN")) {
+		        	return "admindashboard";
+		        }else {
+		        	return "dashboard";
+		        }
 		      } else {
 		        model.addAttribute("error", "Invalid credentials");
 		        return "login";

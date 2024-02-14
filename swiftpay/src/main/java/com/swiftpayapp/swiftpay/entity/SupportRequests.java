@@ -7,12 +7,14 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.SequenceGenerator;
 
 @Entity
 public class SupportRequests {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE , generator = "requestid_generator")
+    @SequenceGenerator(name = "requestid_generator",initialValue = 1,allocationSize = 1,sequenceName = "requestid_seq")
 	private int requestid;
 	
 	

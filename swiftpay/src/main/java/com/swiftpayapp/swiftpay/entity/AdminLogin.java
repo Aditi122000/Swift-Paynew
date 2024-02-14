@@ -20,6 +20,9 @@ public class AdminLogin {
 	@Id
 	private int adminId;
 	
+	
+	private String email;
+	
 	private String password;
 	
 	public String getPassword() {
@@ -40,6 +43,15 @@ public class AdminLogin {
 	public void setAdminId(int adminId) {
 		this.adminId = adminId;
 	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	
+	
+	
 	
 	
 	
