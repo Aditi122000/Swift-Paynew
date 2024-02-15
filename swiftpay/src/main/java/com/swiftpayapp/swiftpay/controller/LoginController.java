@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.swiftpayapp.swiftpay.services.UserService;
 import com.swiftpayapp.swiftpay.services.UserService.InvalidLoginException;
 
+import jakarta.servlet.http.HttpSession;
+
 
 @Controller
 public class LoginController {
@@ -26,7 +28,7 @@ public class LoginController {
 	}
 
 	@RequestMapping(value = "login" , method = RequestMethod.POST)
-	public String goToDashboard(@RequestParam String email, @RequestParam String password , ModelMap model) {
+	public String goToDashboard(@RequestParam String email, @RequestParam String password , ModelMap model,HttpSession session) {
 		
 		try {
 		      Map<String, Object> loginResult = userService.loginValidation(email, password);
@@ -36,6 +38,7 @@ public class LoginController {
 		        if(role.equals("ADMIN")) {
 		        	return "admindashboard";
 		        }else {
+		        	session.setAttribute("email", email);
 		        	return "dashboard";
 		        }
 		      } else {

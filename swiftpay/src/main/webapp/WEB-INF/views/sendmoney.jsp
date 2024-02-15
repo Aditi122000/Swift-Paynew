@@ -23,6 +23,9 @@
 		<p>
 			Current Balance: $<%=request.getParameter("currentBalance")%></p>
 		<p>
+			
+
+			
 			<label for="recipientEmail">Recipient's Email:</label> <input
 				type="email" name="recipientEmail" required
 				pattern="^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$">

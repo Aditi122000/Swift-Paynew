@@ -1,7 +1,6 @@
 package com.swiftpayapp.swiftpay.entity;
 
-import java.util.*;
-
+import java.time.LocalDate;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -17,8 +16,8 @@ public class TransactionDetails {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE , generator = "transactionid_generator")
     @SequenceGenerator(name = "transactionid_generator",initialValue = 1,allocationSize = 1,sequenceName = "transactionid_seq")
 	private int transactionid;
-	private Date transaction_date;
-	private Date transaction_amount;
+	private LocalDate transaction_date;
+	private double transaction_amount;
 	
 	@ManyToOne
 	@JoinColumn(name="transferred_from_userid")
@@ -38,16 +37,16 @@ public class TransactionDetails {
 		this.transactionid = transactionid;
 	}
 	
-	public Date getTransaction_date() {
+	public LocalDate getTransaction_date() {
 		return transaction_date;
 	}
-	public void setTransaction_date(Date transaction_date) {
+	public void setTransaction_date(LocalDate transaction_date) {
 		this.transaction_date = transaction_date;
 	}
-	public Date getTransaction_amount() {
+	public double getTransaction_amount() {
 		return transaction_amount;
 	}
-	public void setTransaction_amount(Date transaction_amount) {
+	public void setTransaction_amount(double transaction_amount) {
 		this.transaction_amount = transaction_amount;
 	}
 	public UserDetails getUserFrom() {
