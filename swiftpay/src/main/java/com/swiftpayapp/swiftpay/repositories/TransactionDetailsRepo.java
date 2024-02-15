@@ -7,5 +7,6 @@ import com.swiftpayapp.swiftpay.entity.TransactionDetails;
 
 @Repository
 public interface TransactionDetailsRepo extends JpaRepository<TransactionDetails, Integer>{
-
+	
+	
 }

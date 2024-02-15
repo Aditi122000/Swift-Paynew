@@ -10,4 +10,6 @@ import com.swiftpayapp.swiftpay.entity.UserDetails;
 public interface UserDetailsRepo extends JpaRepository<UserDetails, Integer> {
 
 	 UserDetails findByEmailAndPassword(String email, String password);
+	 UserDetails findByEmail(String email);
+
 }
