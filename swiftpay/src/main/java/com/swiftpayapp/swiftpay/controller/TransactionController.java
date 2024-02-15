@@ -1,5 +1,6 @@
 package com.swiftpayapp.swiftpay.controller;
 
+import org.modelmapper.internal.asm.commons.ModuleTargetAttribute;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,12 +30,33 @@ public class TransactionController {
 	}
 	
 //  ---------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+//  adding money
+// ----------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+	
+	@RequestMapping(value = "addMoneyToWallet" , method = RequestMethod.POST )
+	public String moneyAddedSuccess( @RequestParam double amount , Model model , HttpSession session) {
+		try {
+			String user=(String) session.getAttribute("email");
+			transactionService.depositFunds(user, amount);
+			return "addmoneysucess";
+		}catch(Exception e) {
+		    model.addAttribute("error", e.getMessage());
+		    return "addmoney";
+		  }
+	}
+	
+	@RequestMapping(value = "moneysent" , method = RequestMethod.GET)
+	public String retrunDashboardAfterAddition() {
+		return "dashboard";
+	}
+	
+//  ---------------------------------------------------------------------------------------------------------------------------------------------------------------------//
 //  sending the money from below controller
 // ----------------------------------------------------------------------------------------------------------------------------------------------------------------------//
 	
 	
 	@RequestMapping(value = "sendMoneyToUser" , method = RequestMethod.POST)
-	public String moneySentSucess( @RequestParam() String recipientEmail , @RequestParam() double amount, Model model,HttpSession session) {
+	public String moneySentSucess( @RequestParam String recipientEmail , @RequestParam double amount, Model model,HttpSession session) {
 		try {
 			String from=(String) session.getAttribute("email");
 		    transactionService.transferFunds(from, recipientEmail, amount);
@@ -47,9 +69,6 @@ public class TransactionController {
 		
 	}
 	
-//  ---------------------------------------------------------------------------------------------------------------------------------------------------------------------//
-//  
-// ----------------------------------------------------------------------------------------------------------------------------------------------------------------------//
 	
 	@RequestMapping(value ="dasboard" , method = RequestMethod.GET)
 	public String returnDashboardAfterTransaction() {
@@ -58,3 +77,10 @@ public class TransactionController {
 	}
 	
 }
+
+	
+//  ---------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+//  
+// ----------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+	
+	

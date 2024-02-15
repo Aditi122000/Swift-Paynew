@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>Add Money to Your Digital Wallet</h1>
-    <form action="addMoneyServlet" method="post">
+    <form action="addMoneyToWallet" method="post">
         <p>Current Balance: $<%= request.getAttribute("currentBalance") %></p>
         <p>Amount to Add: <input type="text" name="amount"></p>
         <input type="submit" value="Add">
