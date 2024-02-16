@@ -22,9 +22,9 @@
 	<div>
 		<label>Password:</label> <span>${userdetail.password}</span>
 	</div>
-	<%-- <div>
+	<div>
 		<label>Address:</label> <span>${userdetail.Address}</span>
-	</div> --%>
+	</div>
 	<div>
 		<label>Bank Account No:</label> <span>${userdetail.bank_acc_no}</span>
 	</div>

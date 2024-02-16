@@ -15,12 +15,14 @@ import com.swiftpayapp.swiftpay.services.DashboardService;
 import com.swiftpayapp.swiftpay.services.UserService;
 
 import jakarta.servlet.http.HttpSession;
+import jakarta.websocket.Session;
 
 @Controller
 public class DashboardController {
 	
 	@Autowired
 	private DashboardService dashboardservice;
+	
 	@Autowired
 	private UserService userService;
 	
@@ -29,23 +31,6 @@ public class DashboardController {
 		return "dashboard";
 	}
 	
-	
-	
-//  ---------------------------------------------------------------------------------------------------------------------------------------------------------------------//
-//  soritng functionality 
-// ----------------------------------------------------------------------------------------------------------------------------------------------------------------------//
-
-	@RequestMapping(value = "/payment", method = RequestMethod.POST)
-	public String sortTransactionsByDateAsc(@RequestParam String sort,Model model) {
-	    List<TransactionDetails> transactions = dashboardservice.getSortedTransactionsByDateAsc(sort);
-	    for(TransactionDetails t:transactions)
-	    {
-	    	System.out.println(t.getTransaction_date());
-	    }
-	    model.addAttribute("transactions", transactions);
-	    return "paymenthistory";
-	}
-
 	
 	
 	
@@ -70,7 +55,7 @@ public class DashboardController {
 // ----------------------------------------------------------------------------------------------------------------------------------------------------------------------//
 	
 	
-	@RequestMapping(value = "profile" , method = RequestMethod.GET)
+	@RequestMapping(value = "/profile" , method = RequestMethod.GET)
 	public String onClickProfile(Model model) {
 	List<UserDetails> userdetail = dashboardservice.userdetail();
 	model.addAttribute("userdetail" , userdetail);
@@ -86,11 +71,19 @@ public class DashboardController {
 	public String onClickLogout() {
 		return "login";
 	}
+
+//  ---------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+//   deletion of account from userService
+// ----------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
 	
-	/* need to add functionality to this
-	 * @RequestMapping(value = "deleteAccount" , method = RequestMethod.GET) public
-	 * String onClickDeleteAccount() { return "deleted"; }
-	 */
+	@RequestMapping(value = "deleteAccount",  method = {RequestMethod.GET, RequestMethod.POST})
+	public String onClickDeleteAccount(HttpSession session) {
+	    String email = (String) session.getAttribute("email");
+	    UserDetails userDetails = userService.findByEmail(email);
+	    dashboardservice.deleteUser(userDetails); 
+	    return "deleted"; 
+	}
 	
 	
 	

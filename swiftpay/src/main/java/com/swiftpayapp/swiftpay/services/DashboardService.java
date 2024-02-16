@@ -38,17 +38,12 @@ public class DashboardService {
 	public List<UserDetails> userdetail(){
 		return userdetailsRepo.findAll();
 	}
-		
-	
 	
 //  ---------------------------------------------------------------------------------------------------------------------------------------------------------------------//
-//  logic for sorting
+//  deletion of acccount
 // ----------------------------------------------------------------------------------------------------------------------------------------------------------------------//
-	public List<TransactionDetails> getSortedTransactionsByDateAsc(String sort){
-		return transactionDetailsRepo.findAll(Sort.by(Direction.ASC ,sort));
+	public void deleteUser(UserDetails userDetails) {
+		userdetailsRepo.delete(userDetails);
 	}
-	
-	
-	
 
 }

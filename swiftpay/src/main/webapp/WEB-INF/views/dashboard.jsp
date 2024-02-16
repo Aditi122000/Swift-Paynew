@@ -11,6 +11,8 @@
 
 </head>
 <body>
+
+
 	<nav>
 		<ul>
 			<li><a href="/home">Home</a></li>
@@ -24,16 +26,14 @@
 	<h2>User Dashboard</h2>
 	<p>
 		Welcome, ${name}
-		<%-- Add user's name here --%>
-		!
+				!
 	</p>
 	<p>
 		Your wallet balance:  ${balance}
-		<%-- Add user's wallet balance here --%>
+		
 	</p>
 	<div>
 		<ul>
-			<li><a href="/editprofile">Edit Profile</a></li>
 			<li><a href="/starttransaction">Start Transaction</a></li>
 			<li><a href="/raiseSupportRequest">Customer Support</a></li>
 		</ul>

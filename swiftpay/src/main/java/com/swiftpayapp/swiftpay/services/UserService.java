@@ -92,6 +92,9 @@ public class UserService {
 		user.setWallet_balance(500.0);
 		userDetailsRepo.save(user);
 	}
+	
+
+	
 }
 
 

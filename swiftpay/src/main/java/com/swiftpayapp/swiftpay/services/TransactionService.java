@@ -1,6 +1,7 @@
 package com.swiftpayapp.swiftpay.services;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,7 +60,7 @@ public class TransactionService {
 	    transaction.setTransaction_amount(amount);
 	    
 	     // 8. Set transaction date
-	    transaction.setTransaction_date(LocalDate.now());
+	    transaction.setTransaction_date(LocalDateTime.now());
 
 	     // 9. Save transaction details
 	    transactionDetailsRepo.save(transaction); 
@@ -88,7 +89,7 @@ public class TransactionService {
 		    TransactionDetails transaction = new TransactionDetails();
 
 		    // Set transaction details
-		    transaction.setTransaction_date(LocalDate.now());
+		    transaction.setTransaction_date(LocalDateTime.now());
 		    transaction.setTransaction_amount(amount);
 		    transaction.setUserFrom(null); // deposit, no 'from' user
 		    transaction.setUserTo(user); 
