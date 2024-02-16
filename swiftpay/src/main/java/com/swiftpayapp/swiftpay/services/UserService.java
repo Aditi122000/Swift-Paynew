@@ -25,9 +25,15 @@ public class UserService {
 		  public InvalidLoginException(String message) {
 		    super(message); 
 		  }
+		  
 
 		}
 
+	//find user by email
+	public UserDetails findByEmail(String email)
+	{
+		return userDetailsRepo.findByEmail(email);
+	}
 	
 	
 	//checking login validation for the user

@@ -14,7 +14,7 @@
 	<nav>
 		<ul>
 			<li><a href="/home">Home</a></li>
-			<li><a href="/payment">Payments</a></li>
+			<li><a href="/paymentHistory">Payments</a></li>
 			<li><a href="/profile">Profile</a></li>
 			<li><a href="/logout">Logout</a></li>
 			<li><a href="/deleteAccount">Delete Account</a></li>
@@ -23,12 +23,12 @@
 	<div class="content">
 	<h2>User Dashboard</h2>
 	<p>
-		Welcome,
+		Welcome, ${name}
 		<%-- Add user's name here --%>
 		!
 	</p>
 	<p>
-		Your wallet balance:
+		Your wallet balance:  ${balance}
 		<%-- Add user's wallet balance here --%>
 	</p>
 	<div>

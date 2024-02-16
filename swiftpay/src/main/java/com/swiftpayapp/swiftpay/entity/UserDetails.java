@@ -12,6 +12,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.SequenceGenerator;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
 
 @Entity
 public class UserDetails {
@@ -31,6 +33,7 @@ public class UserDetails {
 	private String city;
 	private String ustate;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@Temporal(TemporalType.DATE)
 	private Date date_of_birth;
 	private String gender;
 	private String bank_name;
