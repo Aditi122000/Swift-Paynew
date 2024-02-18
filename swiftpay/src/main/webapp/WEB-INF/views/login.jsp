@@ -14,9 +14,20 @@
 
 	<img id="background-image" src="/resources/images/login.png"
 		alt="Background Image">
-	<div class="container">
-		<div class="typewriter">SWIFT PAY</div>
-	</div>
+	<div class="waviy">
+   <span style="--i:1">S</span>
+   <span style="--i:2">W</span>
+   <span style="--i:3">I</span>
+   <span style="--i:4">F</span>
+   <span style="--i:5">T</span>
+   <span style="--i:6">&nbsp;</span>
+   <span style="--i:7">P</span>
+   <span style="--i:8">A</span>
+   <span style="--i:9">Y</span>
+   <span style="--i:10">.</span>
+   <span style="--i:11">.</span>
+   <span style="--i:12">.</span>
+   </div>
 	
 	<div>
 	<h2>Login</h2>
@@ -28,7 +39,6 @@
 		<input type="submit" value="Login">
 	</form>
 	<br>
-	<a href="/forgot">Forgot Password?</a>
 	<a href="/signup">Not registered? Sign up</a>
 	</div>
 </body>

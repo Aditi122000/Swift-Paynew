@@ -18,7 +18,7 @@ public class AdminController {
 	private AdminService adminService;
 	
 	@RequestMapping(value = "transactioner" , method = RequestMethod.GET)
-	public String onclickTransactionForAdmin(Model model) {
+	public String onclickTransactionForAdmin(Model model ) {
 		List<TransactionDetails> transactionss = adminService.transactionss();
 		model.addAttribute("transactions",transactionss);
 		return "admintransactionview";

@@ -57,10 +57,7 @@ public class LoginController {
 	}
 
 	
-	@RequestMapping(value = "forgot" , method = RequestMethod.GET)
-	public String goToForgotPassword() {
-		return "forgotpassword";
-	}
+	
 	
 	@RequestMapping(value = "signup" , method = RequestMethod.GET)
 	public String goToSignUpIfNotRegistered() {

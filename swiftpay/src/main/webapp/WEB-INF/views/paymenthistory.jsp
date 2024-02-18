@@ -37,7 +37,7 @@
 					<td>${trans.userFrom.first_name}</td>
 					<td>${trans.userTo.first_name}</td>
 					<td>${trans.transaction_amount}</td>
-					<td><a href="customer-support" class="btn btn-warning" > Raise Request</a></td>
+					<td><a href="customer-support/${trans.transactionid}" class="btn btn-warning" > Raise Request</a></td>
 			</c:forEach>
 			</tbody>
 		</table>

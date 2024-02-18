@@ -6,50 +6,60 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>User Profile</title>
+<link rel="stylesheet" href="<c:url value='/resources/css/coustomerprofile.css'/>">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+
 </head>
 <body>
-	<h1>Profile</h1>
+<div id="container">
+	 <div class="card">
 
-	<div>
-		<label>First Name:</label> <span>${userdetail.first_name}</span>
-	</div>
-	<div>
-		<label>Last Name:</label> <span>${userdetail.last_name}</span>
-	</div>
-	<div>
-		<label>Email:</label> <span>${userdetail.email}</span>
-	</div>
-	<div>
-		<label>Password:</label> <span>${userdetail.password}</span>
-	</div>
-	<div>
-		<label>Address:</label> <span>${userdetail.Address}</span>
-	</div>
-	<div>
-		<label>Bank Account No:</label> <span>${userdetail.bank_acc_no}</span>
-	</div>
-	<div>
-		<label>Bank Branch:</label> <span>${userdetail.bank_branch}</span>
-	</div>
-	<div>
-		<label>Bank Name:</label> <span>${userdetail.bank_name}</span>
-	</div>
-	<div>
-		<label>City:</label> <span>${userdetail.city}</span>
-	</div>
-	<div>
-		<label>State:</label> <span>${userdetail.ustate}</span>
-	</div>
-	<div>
-		<label>Contact No:</label> <span>${userdetail.contact_no}</span>
-	</div>
-	<div>
-		<label>Date of Birth:</label> <span>${userdetail.date_of_birth}</span>
-	</div>
-	<div>
-		<label>Gender:</label> <span>${userdetail.gender}</span>
-	</div>
-	<a href="/">Back to Home</a>
+        <h1>User Profile <i class="fas fa-user"></i></h1>
 
+        <label>First Name:</label>
+        <span>${userdetail[0].first_name}</span><br><br>
+        
+        <label>Last Name:</label>
+        <span>${userdetail[0].last_name}</span><br><br>
+
+        <label>Email:</label>
+        <span>${userdetail[0].email}</span><br><br>
+
+        <label>Address:</label>
+        <span>${userdetail[0].address}</span><br><br>
+
+        <label>Bank Account No:</label>
+        <span>${userdetail[0].bank_acc_no}</span><br><br>
+
+        <label>Bank Branch:</label>
+        <span>${userdetail[0].bank_branch}</span><br><br>
+
+        <label>Bank Name:</label>
+        <span>${userdetail[0].bank_name}</span><br><br>
+
+        <label>City:</label>
+        <span>${userdetail[0].city}</span><br><br>
+
+        <label>State:</label>
+        <span>${userdetail[0].ustate}</span><br><br>
+
+        <label>Contact No:</label>
+        <span>${userdetail[0].contact_no}</span><br><br>
+
+        <label>Date of Birth:</label>
+        <span>${userdetail[0].date_of_birth}</span><br><br>
+
+        <label>Gender:</label>
+        <span>${userdetail[0].gender}</span><br><br>
+        
+        <label>Wallet Balance:</label>
+        <span>${userdetail[0].wallet_balance}</span>
+
+        <a href="/backhome">Back to Home</a>
+	</div>
+	<img id="background-image" src="/resources/images/profile.png"alt="Background Image">
+	
+
+</div>
 </body>
 </html>

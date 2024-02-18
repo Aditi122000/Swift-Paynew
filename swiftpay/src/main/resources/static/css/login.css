@@ -78,37 +78,22 @@
         a:hover{
         color:#007bff;
         }
-  .container {
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  font-size: clamp(3rem, 3.8vw, 6rem);
-  font-family: Raleway;
-  font-weight: bold;
-  margin-top:30px;
-
+  .waviy {
+  position: relative;
+  margin-bottom:350px;
 }
-
-.typewriter {
-	width: 12.5ch;
-	white-space: nowrap;
-	overflow: hidden;
-	border-right: 3px solid #006a35;
-	animation:  1s step-start infinite, 
-    text 5s steps(10) alternate infinite;
+.waviy span {
+  position: relative;
+  display: inline-block;
+  font-size: 50px;
+  font-weight:'bold';
+  font-style:oblique;
+  color: #0A0909;
+  animation: flip 4s infinite;
+  animation-delay: calc(.2s * var(--i))
 }
-
-@keyframes cursor {
-	0%, 100% { 
-    border-color: #212121; 
-  }
-}
-
-@keyframes text {
-	0% { 
-    width: 0; 
-  }
-	100% { 
-    width: 12.5ch; 
+@keyframes flip {
+  0%,80% {
+    transform: rotateY(360deg) 
   }
 }

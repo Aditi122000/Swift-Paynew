@@ -7,8 +7,10 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
+import com.swiftpayapp.swiftpay.entity.SupportRequests;
 import com.swiftpayapp.swiftpay.entity.TransactionDetails;
 import com.swiftpayapp.swiftpay.entity.UserDetails;
+import com.swiftpayapp.swiftpay.repositories.SupportRequestRepo;
 import com.swiftpayapp.swiftpay.repositories.TransactionDetailsRepo;
 import com.swiftpayapp.swiftpay.repositories.UserDetailsRepo;
 
@@ -20,6 +22,10 @@ public class DashboardService {
 	
 	@Autowired
 	private UserDetailsRepo userdetailsRepo;
+	
+	
+
+		
 	
 //  ---------------------------------------------------------------------------------------------------------------------------------------------------------------------//
 //  retrieveing all the transactions performed by user

@@ -17,7 +17,4 @@ public interface TransactionDetailsRepo extends JpaRepository<TransactionDetails
 	@Query("select t  from TransactionDetails t where t.userFrom.user_id=?1" )
 	List<TransactionDetails> findTransctionsByUserId(int userid);
 	
-	
-	
-	
 }

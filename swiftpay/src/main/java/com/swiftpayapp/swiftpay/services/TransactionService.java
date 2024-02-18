@@ -1,5 +1,6 @@
 package com.swiftpayapp.swiftpay.services;
 
+import java.security.PublicKey;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Date;
@@ -12,6 +13,7 @@ import com.swiftpayapp.swiftpay.entity.UserDetails;
 import com.swiftpayapp.swiftpay.repositories.TransactionDetailsRepo;
 import com.swiftpayapp.swiftpay.repositories.UserDetailsRepo;
 
+import jakarta.transaction.Transaction;
 import jakarta.transaction.Transactional;
 
 @Service
@@ -96,6 +98,11 @@ public class TransactionService {
 
 		    // Save transaction
 		    transactionDetailsRepo.save(transaction);
+//  ---------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+//   fetching transaction id 
+// ----------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+	    
+    
 
 		  
 

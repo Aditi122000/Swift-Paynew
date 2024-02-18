@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -12,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.swiftpayapp.swiftpay.entity.TransactionDetails;
 import com.swiftpayapp.swiftpay.entity.UserDetails;
 import com.swiftpayapp.swiftpay.services.DashboardService;
+import com.swiftpayapp.swiftpay.services.SupportService;
+import com.swiftpayapp.swiftpay.services.TransactionService;
 import com.swiftpayapp.swiftpay.services.UserService;
 
 import jakarta.servlet.http.HttpSession;
@@ -26,12 +29,24 @@ public class DashboardController {
 	@Autowired
 	private UserService userService;
 	
+	@Autowired
+	private TransactionService transactionService;
+	
 	@RequestMapping(value = "home" , method = RequestMethod.GET)
 	public String onClickHome() {
 		return "dashboard";
 	}
+//  ---------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+//  this is for handling support request trying to capture transaction id from view 
+// ----------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+	@RequestMapping(value = "customer-support/{transactionid}" , method = RequestMethod.GET)
+	public String onClickRiseRequest(@PathVariable("transactionid") int transactionid , Model model) {
+		
+		return "support";
+	}
 	
-	
+
+
 	
 	
 //  ---------------------------------------------------------------------------------------------------------------------------------------------------------------------//
@@ -69,7 +84,7 @@ public class DashboardController {
 	
 	@RequestMapping(value = "logout" , method = RequestMethod.GET)
 	public String onClickLogout() {
-		return "login";
+		return "logout";
 	}
 
 //  ---------------------------------------------------------------------------------------------------------------------------------------------------------------------//
@@ -97,11 +112,16 @@ public class DashboardController {
 		return "starttransaction";
 	}
 	
-	@RequestMapping(value = "raiseSupportRequest" , method = RequestMethod.GET)
-	public String onClickRaiseSupportRequest() {
-		return "customersupportrequest";
+	@RequestMapping(value = "/backhome" , method = RequestMethod.GET)
+	public String onClickBackHone() {
+		return "dashboard";
 	}
 	
+//	@RequestMapping(value = "customer-support" , method = RequestMethod.GET)
+//	public String onClickRaiseSupportRequest() {
+//		return "customersupportrequest";
+//	}
+//	
 	
 
 	
